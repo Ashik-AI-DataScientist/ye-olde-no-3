@@ -16,7 +16,7 @@ html, body {
   margin:0;
   padding:0;
   width:100%;
-  overflow-x:hidden; /* Prevents unwanted horizontal scrolling & white margin */
+  overflow-x:hidden;
   background:var(--paper);
   color:var(--ink);
   font:17px/1.65 'Work Sans',sans-serif;
@@ -52,8 +52,51 @@ nav a:hover{color:#e0a252;border-color:var(--gold)}
   animation: pendulumSway 6s ease-in-out infinite;
 }
 
-/* Discovery Bar */
-.discovery{background:var(--wood);color:#e6d7b4;border-block:1px solid rgba(185,144,63,.3);padding:17px 0;text-align:center;font:italic 1rem 'Fraunces',serif}.discovery b{color:#e0a252}
+/* Moving Discovery Ribbon */
+.discovery {
+  background: var(--wood);
+  color: #e6d7b4;
+  padding: 20px 0;
+  border-top: 1px solid rgba(185,144,63,.3);
+  border-bottom: 1px solid rgba(185,144,63,.3);
+  overflow: hidden;
+}
+
+.discovery-track {
+  display: flex;
+  gap: 46px;
+  white-space: nowrap;
+  width: max-content;
+  animation: scroll-left 34s linear infinite;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.discovery-track:hover {
+  animation-play-state: paused; /* Optional pause on hover */
+}
+
+.discovery-track span { 
+  opacity: .85; 
+}
+
+.discovery-track span.hi { 
+  color: #e0a252; 
+  opacity: 1; 
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .discovery-track { 
+    animation: none; 
+    flex-wrap: wrap; 
+  }
+}
 
 /* About & Traditions */
 .about{background:var(--cream)}.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:start}.about-card{background:var(--green);color:var(--cream);padding:40px;border:1px solid var(--gold);transition:transform 0.3s ease}.about-card h3{color:var(--paper);font-size:1.6rem;margin-bottom:14px}.about-card p{color:#e6d7b4}.about-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}.about-list div{border-top:1px solid rgba(242,232,211,.2);padding-top:10px;color:#f2e8d3}
@@ -89,7 +132,6 @@ footer{background:var(--wood);color:#e6d7b4;padding:60px 0 25px}.footer-grid{dis
   .brand img{width:36px;height:36px}
   .brand span{font-size:.9rem}
   nav{gap:6px}
-  /* Hide standard text links on tablet/mobile to keep header clean */
   nav a:not(.order-nav):not(.book){display:none}
   .order-nav, .book{font-size:.78rem!important;padding:7px 10px!important;line-height:1.2}
   .hero-grid,.about-grid,.story-grid,.visit-grid,.contact-grid{grid-template-columns:1fr}
@@ -102,7 +144,7 @@ footer{background:var(--wood);color:#e6d7b4;padding:60px 0 25px}.footer-grid{dis
 
 @media(max-width:560px){
   .section{padding:60px 0}
-  .brand span{display:none} /* Shows icon only on extra small devices to free space */
+  .brand span{display:none}
   .food-grid{grid-template-columns:1fr}
   .about-list{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
@@ -130,7 +172,27 @@ footer{background:var(--wood);color:#e6d7b4;padding:60px 0 25px}.footer-grid{dis
 </div></header>
 
 <section class="hero" id="top"><div class="container hero-grid"><div><span class="eyebrow">Little Bollington · Bridgewater Canal</span><h1>A proper traditional pub<br>— with <em>a taste of South India</em></h1><p>Good pub food, authentic South Indian curries, dishes and breads, draught beer and a warm welcome beside the water.</p><div class="buttons"><a class="btn primary" href="https://www.google.com/maps/reserve/v/dine/c/LV7X8JUAgz0?source=pa&amp;opi=89978449&amp;hl=en-IN&amp;gei=z3Ggaq7fHoilhvcP3eaR6Q8&amp;sourceurl=https://www.google.com/search?q%3Dye%2Bolde%2Bno%2B3%26rlz%3D1C1YTUH_enIN1029IN1029%26oq%3Dye%2Bolde%26pf%3Dcs%26sourceid%3Dchrome%26source%3Dchrome.ob%26ie%3DUTF-8" target="_blank" rel="noopener">Book a Table</a><a class="btn burg-btn" href="https://foodhub.co.uk/little-bollington/ye-olde-no-3/4410275/ordernow?utm_source=google&amp;utm_medium=passlink&amp;utm_content=order-button&amp;rwg_token=AE37R_gwbPEY5cRPlt9UkqzvpKgmTTQ1j2GrMoV5v9fW7Wh64fIFoH_rUD1werdEWnt_bJx8PYvqbkR42JOJ4iWfNlTvDUl9iQ%3D%3D" target="_blank" rel="noopener">Order Online</a><a class="btn ghost" href="menu.html">Explore Menu</a></div></div><div class="hero-sign"><img src="ye-olde-no-3-logo-transparent.png" alt="Ye Olde No. 3 official logo"></div></div></section>
-<div class="discovery">A historic canal-side pub · <b>traditional British food</b> · <b>authentic South Indian cuisine</b> · good beer · good company</div>
+
+<!-- Continuous Moving Ribbon -->
+<div class="discovery" aria-hidden="true">
+  <div class="discovery-track">
+    <span>What is this place?</span>
+    <span>A traditional canal-side pub.</span>
+    <span>It has a fascinating history.</span>
+    <span>They serve proper pub food.</span>
+    <span class="hi">Wait — authentic South Indian curries and breads too?</span>
+    <span>That sounds interesting.</span>
+    <span>Let's book a table.</span>
+    <!-- Duplicated set for seamless infinite loop -->
+    <span>What is this place?</span>
+    <span>A traditional canal-side pub.</span>
+    <span>It has a fascinating history.</span>
+    <span>They serve proper pub food.</span>
+    <span class="hi">Wait — authentic South Indian curries and breads too?</span>
+    <span>That sounds interesting.</span>
+    <span>Let's book a table.</span>
+  </div>
+</div>
 
 <section class="section about" id="about"><div class="container about-grid"><div><span class="kicker">About Ye Olde No. 3</span><h2>A pub with proper character — and a kitchen with something unexpected.</h2><p>Ye Olde No. 3 is a traditional pub in Little Bollington, beside the Bridgewater Canal. It is a place for a pint, a meal, a Sunday roast, a canal-side walk or simply a warm welcome.</p><p>What makes the pub different is the food. Alongside traditional English pub favourites, the kitchen serves authentic South Indian curries, regional dishes and traditional breads. The two traditions are not presented as a gimmick or a generic fusion menu — each has its own identity.</p></div><div class="about-card reveal"><h3>Who is the pub for?</h3><p>The character of Ye Olde No. 3 suits a broad mix of customers and occasions.</p><div class="about-list"><div>Local regulars</div><div>Families</div><div>Couples</div><div>Walkers</div><div>Dog owners</div><div>Canal boaters</div><div>Sunday lunch guests</div><div>Food explorers</div></div></div></div></section>
 
@@ -176,4 +238,5 @@ document.querySelectorAll('.reveal').forEach(element => {
   revealObserver.observe(element);
 });
 </script>
-</body></html>
+</body>
+</html>
