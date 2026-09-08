@@ -11,15 +11,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--green:#16311f;--deep:#0f2417;--light:#2b4a34;--burg:#6a1f2b;--burg2:#4c141d;--amber:#c67c2e;--gold:#b9903f;--cream:#f2e8d3;--paper:#faf4e6;--ink:#1c1108;--muted:#5a4933;--wood:#241609}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 'Work Sans',sans-serif}h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;line-height:1.15;margin:0}a{color:inherit}.container{max-width:1180px;margin:auto;padding:0 32px}.section{padding:90px 0}.kicker{font:italic 1rem 'Fraunces',serif;color:var(--burg);display:block;margin-bottom:10px}.dark .kicker{color:#e0a252}.section-head{max-width:720px;margin-bottom:44px}.section-head h2{font-size:clamp(2rem,4vw,3rem)}.section-head p{color:var(--muted);margin-top:16px}
+*{box-sizing:border-box}
+html, body {
+  margin:0;
+  padding:0;
+  width:100%;
+  overflow-x:hidden; /* Prevents unwanted horizontal scrolling & white margin */
+  background:var(--paper);
+  color:var(--ink);
+  font:17px/1.65 'Work Sans',sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;line-height:1.15;margin:0}a{color:inherit}.container{max-width:1180px;margin:auto;padding:0 32px}.section{padding:90px 0}.kicker{font:italic 1rem 'Fraunces',serif;color:var(--burg);display:block;margin-bottom:10px}.dark .kicker{color:#e0a252}.section-head{max-width:720px;margin-bottom:44px}.section-head h2{font-size:clamp(2rem,4vw,3rem)}.section-head p{color:var(--muted);margin-top:16px}
 
 /* Sticky Header with Dynamic Shadow */
-header{position:sticky;top:0;z-index:100;background:var(--deep);border-bottom:1px solid rgba(185,144,63,.4);transition:box-shadow 0.3s ease, background 0.3s ease}
+header{position:sticky;top:0;z-index:100;background:var(--deep);border-bottom:1px solid rgba(185,144,63,.4);transition:box-shadow 0.3s ease, background 0.3s ease;width:100%}
 header.scrolled{box-shadow:0 8px 24px rgba(0,0,0,0.35);background:#0b1b11}
-.nav{max-width:1180px;margin:auto;padding:12px 32px;display:flex;align-items:center;gap:20px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}.brand img{width:48px;height:48px;object-fit:contain;display:block;transition:transform 0.3s ease}.brand:hover img{transform:scale(1.06)}.brand span{white-space:nowrap;font:600 1.05rem 'Fraunces',serif;color:var(--cream)}nav{display:flex;gap:18px;align-items:center}nav a{color:var(--cream);text-decoration:none;font-size:.9rem;padding:6px 0;border-bottom:1px solid transparent;transition:color 0.25s ease, border-color 0.25s ease}nav a:hover{color:#e0a252;border-color:var(--gold)}.book{background:var(--burg);border:1px solid var(--gold);padding:9px 17px!important;transition:background 0.3s ease, transform 0.2s ease}.book:hover{background:var(--burg2);transform:translateY(-2px)}.order-nav{background:var(--amber);color:var(--ink)!important;font-weight:600;padding:9px 17px!important;border:1px solid var(--amber);transition:background 0.3s ease, transform 0.2s ease}.order-nav:hover{background:#d88935;transform:translateY(-2px)}.menu-link{color:#e0a252}
+.nav{max-width:1180px;margin:auto;padding:12px 32px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}.brand img{width:48px;height:48px;object-fit:contain;display:block;transition:transform 0.3s ease}.brand:hover img{transform:scale(1.06)}.brand span{white-space:nowrap;font:600 1.05rem 'Fraunces',serif;color:var(--cream)}
+nav{display:flex;gap:16px;align-items:center}
+nav a{color:var(--cream);text-decoration:none;font-size:.9rem;padding:6px 0;border-bottom:1px solid transparent;transition:color 0.25s ease, border-color 0.25s ease;white-space:nowrap}
+nav a:hover{color:#e0a252;border-color:var(--gold)}
+.book{background:var(--burg);border:1px solid var(--gold);padding:9px 15px!important;transition:background 0.3s ease, transform 0.2s ease;text-align:center}.book:hover{background:var(--burg2);transform:translateY(-2px)}
+.order-nav{background:var(--amber);color:var(--ink)!important;font-weight:600;padding:9px 15px!important;border:1px solid var(--amber);transition:background 0.3s ease, transform 0.2s ease;text-align:center}.order-nav:hover{background:#d88935;transform:translateY(-2px)}
+.menu-link{color:#e0a252}
 
 /* Hero Section & Pendulum Emblem Effect */
-.hero{background:radial-gradient(circle at 82% 10%,rgba(198,124,46,.18),transparent 35%),linear-gradient(155deg,var(--deep),var(--green) 65%,var(--light));color:var(--cream);padding:95px 0 80px}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center}.eyebrow{color:#e0a252;font:italic .95rem 'Fraunces',serif}.hero h1{font-size:clamp(2.7rem,6vw,4.7rem);color:var(--paper);margin-top:12px}.hero h1 em{color:#e0a252;font-style:italic}.hero p{font-size:1.1rem;color:#e6d7b4;max-width:55ch;margin:24px 0}.buttons{display:flex;gap:14px;flex-wrap:wrap}.btn{display:inline-block;text-decoration:none;padding:12px 22px;border:1px solid var(--gold);font-weight:600;transition:all 0.3s ease}.btn:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,0.2)}.primary{background:var(--amber);color:var(--ink);border-color:var(--amber)}.primary:hover{background:#d88935}.ghost{color:var(--cream);border-color:rgba(242,232,211,.55)}.ghost:hover{background:rgba(242,232,211,.1);border-color:var(--cream)}.burg-btn{background:var(--burg);color:var(--paper);border-color:var(--gold)}.burg-btn:hover{background:var(--burg2)}.hero-sign{justify-self:center;width:min(380px,100%);border:1px solid var(--gold);padding:18px;background:rgba(15,36,23,.55);display:flex;justify-content:center;align-items:center;transition:transform 0.4s ease, box-shadow 0.4s ease}.hero-sign:hover{box-shadow:0 12px 28px rgba(0,0,0,0.3)}
+.hero{background:radial-gradient(circle at 82% 10%,rgba(198,124,46,.18),transparent 35%),linear-gradient(155deg,var(--deep),var(--green) 65%,var(--light));color:var(--cream);padding:95px 0 80px}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center}.eyebrow{color:#e0a252;font:italic .95rem 'Fraunces',serif}.hero h1{font-size:clamp(2.7rem,6vw,4.7rem);color:var(--paper);margin-top:12px}.hero h1 em{color:#e0a252;font-style:italic}.hero p{font-size:1.1rem;color:#e6d7b4;max-width:55ch;margin:24px 0}.buttons{display:flex;gap:14px;flex-wrap:wrap}.btn{display:inline-block;text-decoration:none;padding:12px 22px;border:1px solid var(--gold);font-weight:600;transition:all 0.3s ease;text-align:center}.btn:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,0.2)}.primary{background:var(--amber);color:var(--ink);border-color:var(--amber)}.primary:hover{background:#d88935}.ghost{color:var(--cream);border-color:rgba(242,232,211,.55)}.ghost:hover{background:rgba(242,232,211,.1);border-color:var(--cream)}.burg-btn{background:var(--burg);color:var(--paper);border-color:var(--gold)}.burg-btn:hover{background:var(--burg2)}.hero-sign{justify-self:center;width:min(380px,100%);border:1px solid var(--gold);padding:18px;background:rgba(15,36,23,.55);display:flex;justify-content:center;align-items:center;transition:transform 0.4s ease, box-shadow 0.4s ease}.hero-sign:hover{box-shadow:0 12px 28px rgba(0,0,0,0.3)}
 
 @keyframes pendulumSway {
   0% { transform: rotate(-3deg); }
@@ -66,13 +83,50 @@ footer{background:var(--wood);color:#e6d7b4;padding:60px 0 25px}.footer-grid{dis
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-@media(max-width:900px){nav{gap:10px}.hero-grid,.about-grid,.story-grid,.visit-grid,.contact-grid{grid-template-columns:1fr}.contact-cards{grid-template-columns:1fr}.hero-sign{order:-1;max-width:300px}.food-grid{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}.nav{padding:12px 20px}.nav nav a:not(.menu-link):not(.book):not(.order-nav){display:none}.container{padding:0 22px}}@media(max-width:560px){.section{padding:70px 0}.food-grid{grid-template-columns:1fr}.about-list{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column}.hero{padding-top:65px}.food-intro{display:block}.food-intro .btn-group{margin-top:18px;flex-direction:column}}
+/* RESPONSIVE & MOBILE FIXES */
+@media(max-width:980px){
+  .nav{padding:10px 16px;gap:8px}
+  .brand img{width:36px;height:36px}
+  .brand span{font-size:.9rem}
+  nav{gap:6px}
+  /* Hide standard text links on tablet/mobile to keep header clean */
+  nav a:not(.order-nav):not(.book){display:none}
+  .order-nav, .book{font-size:.78rem!important;padding:7px 10px!important;line-height:1.2}
+  .hero-grid,.about-grid,.story-grid,.visit-grid,.contact-grid{grid-template-columns:1fr}
+  .contact-cards{grid-template-columns:1fr}
+  .hero-sign{order:-1;max-width:280px}
+  .food-grid{grid-template-columns:1fr 1fr}
+  .split{grid-template-columns:1fr}
+  .container{padding:0 18px}
+}
+
+@media(max-width:560px){
+  .section{padding:60px 0}
+  .brand span{display:none} /* Shows icon only on extra small devices to free space */
+  .food-grid{grid-template-columns:1fr}
+  .about-list{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column}
+  .hero{padding-top:50px}
+  .food-intro{display:block}
+  .food-intro .btn-group{margin-top:18px;flex-direction:column}
+  .order-nav, .book{font-size:.75rem!important;padding:6px 8px!important}
+}
 </style>
 </head>
 <body>
 <header id="main-header"><div class="nav">
 <a class="brand" href="index.html#top"><img src="ye-olde-no-3-logo-transparent.png" alt="Ye Olde No. 3 official logo"><span>Ye Olde No. 3</span></a>
-<nav><a href="index.html#about">About</a><a href="index.html#story">Story</a><a href="index.html#food">Food</a><a class="menu-link" href="menu.html">Menu</a><a href="index.html#contact">Contact</a><a href="index.html#visit">Find Us</a><a class="order-nav" href="https://foodhub.co.uk/little-bollington/ye-olde-no-3/4410275/ordernow?utm_source=google&amp;utm_medium=passlink&amp;utm_content=order-button&amp;rwg_token=AE37R_gwbPEY5cRPlt9UkqzvpKgmTTQ1j2GrMoV5v9fW7Wh64fIFoH_rUD1werdEWnt_bJx8PYvqbkR42JOJ4iWfNlTvDUl9iQ%3D%3D" target="_blank" rel="noopener">Order Online</a><a class="book" href="https://www.google.com/maps/reserve/v/dine/c/LV7X8JUAgz0?source=pa&amp;opi=89978449&amp;hl=en-IN&amp;gei=z3Ggaq7fHoilhvcP3eaR6Q8&amp;sourceurl=https://www.google.com/search?q%3Dye%2Bolde%2Bno%2B3%26rlz%3D1C1YTUH_enIN1029IN1029%26oq%3Dye%2Bolde%26pf%3Dcs%26sourceid%3Dchrome%26source%3Dchrome.ob%26ie%3DUTF-8" target="_blank" rel="noopener">Book a Table</a></nav>
+<nav>
+<a href="index.html#about">About</a>
+<a href="index.html#story">Story</a>
+<a href="index.html#food">Food</a>
+<a class="menu-link" href="menu.html">Menu</a>
+<a href="index.html#contact">Contact</a>
+<a href="index.html#visit">Find Us</a>
+<a class="order-nav" href="https://foodhub.co.uk/little-bollington/ye-olde-no-3/4410275/ordernow?utm_source=google&amp;utm_medium=passlink&amp;utm_content=order-button&amp;rwg_token=AE37R_gwbPEY5cRPlt9UkqzvpKgmTTQ1j2GrMoV5v9fW7Wh64fIFoH_rUD1werdEWnt_bJx8PYvqbkR42JOJ4iWfNlTvDUl9iQ%3D%3D" target="_blank" rel="noopener">Order Online</a>
+<a class="book" href="https://www.google.com/maps/reserve/v/dine/c/LV7X8JUAgz0?source=pa&amp;opi=89978449&amp;hl=en-IN&amp;gei=z3Ggaq7fHoilhvcP3eaR6Q8&amp;sourceurl=https://www.google.com/search?q%3Dye%2Bolde%2Bno%2B3%26rlz%3D1C1YTUH_enIN1029IN1029%26oq%3Dye%2Bolde%26pf%3Dcs%26sourceid%3Dchrome%26source%3Dchrome.ob%26ie%3DUTF-8" target="_blank" rel="noopener">Book Table</a>
+</nav>
 </div></header>
 
 <section class="hero" id="top"><div class="container hero-grid"><div><span class="eyebrow">Little Bollington · Bridgewater Canal</span><h1>A proper traditional pub<br>— with <em>a taste of South India</em></h1><p>Good pub food, authentic South Indian curries, dishes and breads, draught beer and a warm welcome beside the water.</p><div class="buttons"><a class="btn primary" href="https://www.google.com/maps/reserve/v/dine/c/LV7X8JUAgz0?source=pa&amp;opi=89978449&amp;hl=en-IN&amp;gei=z3Ggaq7fHoilhvcP3eaR6Q8&amp;sourceurl=https://www.google.com/search?q%3Dye%2Bolde%2Bno%2B3%26rlz%3D1C1YTUH_enIN1029IN1029%26oq%3Dye%2Bolde%26pf%3Dcs%26sourceid%3Dchrome%26source%3Dchrome.ob%26ie%3DUTF-8" target="_blank" rel="noopener">Book a Table</a><a class="btn burg-btn" href="https://foodhub.co.uk/little-bollington/ye-olde-no-3/4410275/ordernow?utm_source=google&amp;utm_medium=passlink&amp;utm_content=order-button&amp;rwg_token=AE37R_gwbPEY5cRPlt9UkqzvpKgmTTQ1j2GrMoV5v9fW7Wh64fIFoH_rUD1werdEWnt_bJx8PYvqbkR42JOJ4iWfNlTvDUl9iQ%3D%3D" target="_blank" rel="noopener">Order Online</a><a class="btn ghost" href="menu.html">Explore Menu</a></div></div><div class="hero-sign"><img src="ye-olde-no-3-logo-transparent.png" alt="Ye Olde No. 3 official logo"></div></div></section>
